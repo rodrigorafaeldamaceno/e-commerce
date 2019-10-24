@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:ecommerce/screens/ListProductScreen.dart';
 import 'package:flutter/material.dart';
 
 class CategoryTile extends StatelessWidget {
@@ -16,7 +17,11 @@ class CategoryTile extends StatelessWidget {
       ),
       title: Text(snapshot.data['title']),
       trailing: Icon(Icons.keyboard_arrow_right),
-      onTap: () {},
+      onTap: () {
+        Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) => ListProductScreen(snapshot),
+        ));
+      },
     );
   }
 }

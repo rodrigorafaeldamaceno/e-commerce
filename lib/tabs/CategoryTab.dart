@@ -18,7 +18,6 @@ class CategoryTab extends StatelessWidget {
                   }).toList(),
                   color: Colors.grey[500])
               .toList();
-
           return ListView(
             children: dividedTiles,
           );
