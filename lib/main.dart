@@ -11,8 +11,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'E-Commerce',
       theme: ThemeData(
-          primarySwatch: Colors.blue,
-          primaryColor: Color.fromARGB(255, 4, 125, 141)),
+        primarySwatch: Colors.blue,
+        primaryColor: Color.fromARGB(255, 4, 125, 141)
+      ),
       debugShowCheckedModeBanner: false,
       home: HomeScreen(),
     );
