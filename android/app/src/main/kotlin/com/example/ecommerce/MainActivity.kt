@@ -1,4 +1,4 @@
-package com.example.ecommerce
+package com.rsouza.ecommerce
 
 import android.os.Bundle
 
