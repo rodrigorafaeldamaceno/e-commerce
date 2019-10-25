@@ -37,7 +37,7 @@ class ListProductScreen extends StatelessWidget {
               );
             else {
               return TabBarView(
-                physics: NeverScrollableScrollPhysics(),
+                // physics: NeverScrollableScrollPhysics(),
                 children: <Widget>[
                   //retorna enquanto for dando scroll down
                   GridView.builder(

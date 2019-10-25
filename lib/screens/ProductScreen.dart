@@ -13,6 +13,8 @@ class ProductScreen extends StatefulWidget {
 class _ProductScreenState extends State<ProductScreen> {
   final ProductData product;
 
+  String size;
+
   _ProductScreenState(this.product);
 
   @override
@@ -55,6 +57,66 @@ class _ProductScreenState extends State<ProductScreen> {
                       fontSize: 22,
                       fontWeight: FontWeight.bold,
                       color: primaryColor),
+                ),
+                SizedBox(height: 16),
+                Text(
+                  "Tamanho",
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                ),
+                SizedBox(
+                  height: 34,
+                  child: GridView(
+                    padding: EdgeInsets.symmetric(vertical: 4),
+                    scrollDirection: Axis.horizontal,
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 1,
+                        mainAxisSpacing: 8,
+                        childAspectRatio: 0.5),
+                    children: product.sizes.map((s) {
+                      return GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            size = s;
+                          });
+                        },
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius:
+                                BorderRadius.all((Radius.circular(4))),
+                            border: Border.all(
+                                color:
+                                    size == s ? primaryColor : Colors.grey[500],
+                                width: 3),
+                          ),
+                          width: 50,
+                          alignment: Alignment.center,
+                          child: Text(s),
+                        ),
+                      );
+                    }).toList(),
+                  ),
+                ),
+                SizedBox(height: 16),
+                SizedBox(
+                  height: 44,
+                  child: RaisedButton(
+                    onPressed: size != null ? () {} : null,
+                    child: Text(
+                      "Adicionar ao carrinho",
+                      style: TextStyle(fontSize: 18),
+                    ),
+                    color: primaryColor,
+                    textColor: Colors.white,
+                  ),
+                ),
+                SizedBox(height: 16),
+                Text(
+                  'Descrição',
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                ),
+                Text(
+                  product.description,
+                  style: TextStyle(fontSize: 16),
                 )
               ],
             ),
