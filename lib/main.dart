@@ -1,3 +1,5 @@
+import 'package:ecommerce/screens/LoginScreen.dart';
+import 'package:ecommerce/screens/RegisterScreen.dart';
 import 'package:flutter/material.dart';
 
 import 'package:ecommerce/screens/HomeScreen.dart';
@@ -12,7 +14,7 @@ class MyApp extends StatelessWidget {
       title: 'E-Commerce',
       theme: ThemeData(
         primarySwatch: Colors.blue,
-        primaryColor: Color.fromARGB(255, 4, 125, 141)
+        primaryColor: Colors.cyan[400]//Color.fromARGB(255, 4, 125, 141)
       ),
       debugShowCheckedModeBanner: false,
       home: HomeScreen(),
