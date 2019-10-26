@@ -1,4 +1,4 @@
-import 'package:ecommerce/datas/productData.dart';
+import 'package:ecommerce/datas/ProductData.dart';
 import 'package:ecommerce/screens/ProductScreen.dart';
 import 'package:flutter/material.dart';
 
@@ -61,26 +61,27 @@ class ProductTile extends StatelessWidget {
                     ),
                   ),
                   Flexible(
-                      flex: 1,
-                      child: Container(
-                        padding: EdgeInsets.all(8),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Text(
-                              product.title,
-                              style: TextStyle(fontWeight: FontWeight.w500),
-                            ),
-                            Text(
-                              "R\$${product.price.toStringAsFixed(2)}",
-                              style: TextStyle(
-                                  color: Theme.of(context).primaryColor,
-                                  fontSize: 17,
-                                  fontWeight: FontWeight.bold),
-                            )
-                          ],
-                        ),
-                      ))
+                    flex: 1,
+                    child: Container(
+                      padding: EdgeInsets.all(8),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text(
+                            product.title,
+                            style: TextStyle(fontWeight: FontWeight.w500),
+                          ),
+                          Text(
+                            "R\$${product.price.toStringAsFixed(2)}",
+                            style: TextStyle(
+                                color: Theme.of(context).primaryColor,
+                                fontSize: 17,
+                                fontWeight: FontWeight.bold),
+                          )
+                        ],
+                      ),
+                    ),
+                  )
                 ],
               ),
       ),

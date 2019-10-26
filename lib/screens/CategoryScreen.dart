@@ -1,12 +1,12 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:ecommerce/datas/productData.dart';
+import 'package:ecommerce/datas/ProductData.dart';
 import 'package:ecommerce/tiles/ProductTile.dart';
 import 'package:flutter/material.dart';
 
-class ListProductScreen extends StatelessWidget {
+class CategoryScreen extends StatelessWidget {
   final DocumentSnapshot snapshot;
 
-  ListProductScreen(this.snapshot);
+  CategoryScreen(this.snapshot);
 
   @override
   Widget build(BuildContext context) {
@@ -49,20 +49,21 @@ class ListProductScreen extends StatelessWidget {
                         childAspectRatio: 0.65),
                     itemCount: snapshot.data.documents.length,
                     itemBuilder: (context, index) {
-                      return ProductTile(
-                          'grid',
-                          ProductData.fromDocument(
-                              snapshot.data.documents[index]));
+                      ProductData data = ProductData.fromDocument(
+                          snapshot.data.documents[index]);
+                      data.category = this.snapshot.documentID;
+
+                      return ProductTile('grid', data);
                     },
                   ),
                   ListView.builder(
                     padding: EdgeInsets.all(4),
                     itemCount: snapshot.data.documents.length,
                     itemBuilder: (context, index) {
-                      return ProductTile(
-                          'list',
-                          ProductData.fromDocument(
-                              snapshot.data.documents[index]));
+                      ProductData data = ProductData.fromDocument(
+                          snapshot.data.documents[index]);
+                      data.category = this.snapshot.documentID;
+                      return ProductTile('list', data);
                     },
                   )
                 ],
