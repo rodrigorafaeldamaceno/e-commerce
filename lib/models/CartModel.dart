@@ -9,6 +9,8 @@ class CartModel extends Model {
   UserModel user;
   List<CartProduct> products = [];
   bool isLoading = false;
+  String couponCode;
+  int discountPercentage = 0;
 
   // retorno um objeto do tipo CartModel
   static CartModel of(BuildContext context) =>
@@ -84,4 +86,29 @@ class CartModel extends Model {
 
     notifyListeners();
   }
+
+  void setCoupon(String couponCode, int percentage) {
+    this.couponCode = couponCode;
+    this.discountPercentage = percentage;
+  }
+
+  double getProductsPrice() {
+    double price = 0.0;
+    for (CartProduct p in products) {
+      if (p.productData != null) price += p.quantity * p.productData.price;
+    }
+
+    return price;
+  }
+
+  double getShipPrice() {
+    // rever essa implementação quando o maps estiver funcionando
+    return 9.99;
+  }
+
+  double getDiscount() {
+    return getProductsPrice() * discountPercentage / 100;
+  }
+
+  void updatePrices() => notifyListeners();
 }
