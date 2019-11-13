@@ -38,9 +38,10 @@ class CustomDrawer extends StatelessWidget {
                       child: Text(
                         'E-Commerce',
                         style: TextStyle(
-                            fontSize: 34,
-                            fontWeight: FontWeight.bold,
-                            fontStyle: FontStyle.italic),
+                          fontSize: 34,
+                          fontWeight: FontWeight.bold,
+                          fontStyle: FontStyle.italic,
+                        ),
                       ),
                     ),
                     Positioned(
@@ -54,8 +55,9 @@ class CustomDrawer extends StatelessWidget {
                                 Text(
                                   "Olá ${!model.isLoggedIn() ? "" : model.userData["name"]}",
                                   style: TextStyle(
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.bold),
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
                                 GestureDetector(
                                   child: Text(
@@ -63,16 +65,20 @@ class CustomDrawer extends StatelessWidget {
                                         ? 'Entre ou cadastre-se'
                                         : 'Sair',
                                     style: TextStyle(
-                                        color: Theme.of(context).primaryColor,
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.bold),
+                                      color: Theme.of(context).primaryColor,
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold,
+                                    ),
                                   ),
                                   onTap: () {
-                                    !model.isLoggedIn()?
-                                    Navigator.of(context).push(
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                LoginScreen())):model.signOut();
+                                    !model.isLoggedIn()
+                                        ? Navigator.of(context).push(
+                                            MaterialPageRoute(
+                                              builder: (context) =>
+                                                  LoginScreen(),
+                                            ),
+                                          )
+                                        : model.signOut();
                                   },
                                 )
                               ],

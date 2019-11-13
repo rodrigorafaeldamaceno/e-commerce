@@ -76,7 +76,7 @@ class PriceCard extends StatelessWidget {
                   child: Text('Finalizar pedido'),
                   textColor: Colors.white,
                   color: primaryColor,
-                  onPressed: () {},
+                  onPressed: buy,
                 )
               ],
             );
